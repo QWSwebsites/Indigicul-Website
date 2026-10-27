@@ -5,85 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>INDIGICUL | Fine Leather Goods</title>
 
-  <!-- Fonts: Bodoni Moda (headings) and Jost (body text) -->
+  <!-- Google Fonts: Bodoni Moda (Headings), Cormorant Garamond (Subheadings), Jost (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
-       1. COLOURS
+       1. COLOUR PALETTE (SHADES OF BROWN)
        ========================================================== */
     :root {
-      --white: #ffffff;
-      --black: #000000;
-      --grey:  #555555;
+      --color-umber:      #3B312E; /* Rich Deep Dark Brown - Primary Text & Hero BG */
+      --color-cacao:      #4D3B35; /* Deep Cacao Accent */
+      --color-mocha:      #6E4F44; /* Warm Mocha */
+      --color-saddle:     #8C5948; /* Classic Saddle Leather Accent */
+      --color-terracotta: #A46954; /* Terracotta Highlight & Buttons */
+      --color-fawn:       #B8826D; /* Soft Fawn Accent */
+      --color-caramel:    #C89880; /* Caramel Highlight */
+      --color-plaster:    #CCA389; /* Plaster Accent */
+      --color-sand:       #E1C5AF; /* Sand Card Backgrounds */
+      --color-taupe:      #A69485; /* Muted Taupe Border */
+      --color-latte:      #ECE1D4; /* Soft Warm Latte Canvas BG */
+      
+      /* Tier Metals */
+      --metal-gold:   #9E7B3B;
+      --metal-bronze: #8C5948;
+      --metal-silver: #7A8588;
     }
 
     /* ==========================================================
-       2. BASE STYLES
+       2. BASE STYLES & TYPOGRAPHY
        ========================================================== */
     * {
       box-sizing: border-box;
       margin: 0;
+      padding: 0;
     }
 
     body {
-      background: var(--white);
-      color: var(--black);
-      font-family: Jost, Arial, sans-serif;
+      background-color: var(--color-latte);
+      color: var(--color-umber);
+      font-family: 'Jost', sans-serif;
       font-weight: 300;
       font-size: 17px;
-      line-height: 1.7;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3 {
-      font-family: "Bodoni Moda", Didot, "Times New Roman", serif;
+    h1, h2, h3, h4 {
+      font-family: "Bodoni Moda", serif;
       font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--color-umber);
+    }
+
+    h2 { 
+      font-size: clamp(2rem, 5vw, 3.2rem); 
+      margin-bottom: 1rem; 
       line-height: 1.15;
     }
 
-    h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); margin-bottom: 1rem; }
-    h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-
-    p {
-      max-width: 62ch;
-      color: var(--grey);
+    h3 { 
+      font-size: 1.6rem; 
+      margin-bottom: 0.5rem; 
     }
 
-    .page-title {
-      font-size: clamp(2.2rem, 6vw, 4.5rem);
+    p {
+      max-width: 68ch;
+      color: var(--color-cacao);
       margin-bottom: 1rem;
     }
 
+    .page-title {
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      margin-bottom: 1rem;
+      color: var(--color-umber);
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--color-mocha);
+      margin-bottom: 1.5rem;
+    }
+
     .label {
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      color: var(--grey);
-    }
-
-    .story-image-wrapper {
-      text-align: center;
-      margin-bottom: 2rem;
-      width: 100%;
-    }
-
-    .story-image {
-      height: 140px; 
-      width: auto;
-      display: inline-block;
-      margin: 0 auto;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-saddle);
     }
 
     .card-img {
       width: 100%;
-      height: 200px;         
-      object-fit: cover;     
+      height: 230px;
+      object-fit: cover;
       margin-bottom: 1.5rem;
       display: block;
+      border: 1px solid var(--color-taupe);
     }
-    
+
     /* ==========================================================
-       3. HEADER AND NAVIGATION BUTTONS
+       3. TOP ANNOUNCEMENT RIBBON
+       ========================================================== */
+    .top-ribbon {
+      background: var(--color-cacao);
+      color: var(--color-latte);
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* ==========================================================
+       4. HEADER & NAVIGATION
        ========================================================== */
     header {
       position: sticky;
@@ -94,15 +132,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem 2rem;
-      padding: 1rem 5vw;
-      background: var(--white);
-      border-bottom: 1px solid var(--black);
+      padding: 1.2rem 5vw;
+      background: var(--color-latte);
+      border-bottom: 1px solid var(--color-taupe);
     }
 
     .logo {
-      font-family: "Bodoni Moda", serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.3em;
       background: none;
       border: 0;
       cursor: pointer;
@@ -116,62 +151,114 @@
     }
 
     nav button {
-      background: var(--white);
-      color: var(--black);
-      border: 1px solid var(--black);
-      padding: 0.5rem 1.2rem;
-      font-family: inherit;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
+      background: transparent;
+      color: var(--color-umber);
+      border: 1px solid var(--color-mocha);
+      padding: 0.55rem 1.3rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     nav button:hover,
     nav button.active {
-      background: var(--black);
-      color: var(--white);
+      background: var(--color-cacao);
+      color: var(--color-latte);
+      border-color: var(--color-cacao);
     }
 
     /* ==========================================================
-       4. BUTTONS
+       5. BUTTONS
        ========================================================== */
     .btn {
       display: inline-block;
       margin-top: 1.5rem;
-      padding: 0.8rem 2rem;
-      background: var(--white);
-      color: var(--black);
-      border: 1px solid var(--black);
-      font-family: inherit;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
+      padding: 0.85rem 2.2rem;
+      background: transparent;
+      color: var(--color-umber);
+      border: 1px solid var(--color-cacao);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       text-decoration: none;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: all 0.3s ease;
     }
 
-    .btn:hover,
+    .btn:hover {
+      background: var(--color-saddle);
+      color: #ffffff;
+      border-color: var(--color-saddle);
+    }
+
     .btn.solid {
-      background: var(--black);
-      color: var(--white);
+      background: var(--color-cacao);
+      color: var(--color-latte);
+      border-color: var(--color-cacao);
     }
 
     .btn.solid:hover {
-      background: var(--white);
-      color: var(--black);
+      background: var(--color-terracotta);
+      color: #ffffff;
+      border-color: var(--color-terracotta);
     }
 
     /* ==========================================================
-       5. PAGES AND SECTIONS
+       6. PAGES & SECTIONS
        ========================================================== */
-    .page { display: none; min-height: 70vh; }
+    .page { display: none; min-height: 75vh; }
     .page.active { display: block; }
 
     section {
       padding: 5rem 5vw;
-      border-bottom: 1px solid var(--black);
+      border-bottom: 1px solid var(--color-taupe);
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--color-umber);
+      color: var(--color-latte);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      letter-spacing: 0.03em;
+      color: var(--color-latte);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      color: var(--color-sand);
+    }
+
+    .hero .btn { 
+      background: transparent; 
+      color: var(--color-latte); 
+      border-color: var(--color-sand); 
+    }
+    .hero .btn:hover { 
+      background: var(--color-terracotta); 
+      border-color: var(--color-terracotta); 
+      color: #ffffff;
+    }
+    .hero .btn.solid { 
+      background: var(--color-terracotta); 
+      color: #ffffff; 
+      border-color: var(--color-terracotta); 
+    }
+    .hero .btn.solid:hover {
+      background: var(--color-latte);
+      color: var(--color-umber);
+      border-color: var(--color-latte);
     }
 
     .story-container {
@@ -180,58 +267,44 @@
       text-align: left;
     }
 
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 8vw, 6rem);
-      letter-spacing: 0.02em;
-    }
-
-    .hero p {
-      margin-top: 1.5rem;
-      font-size: 1.15rem;
-      color: var(--white);
-      opacity: 0.8;
-    }
-
-    .hero .btn       { background: var(--black); color: var(--white); border-color: var(--white); }
-    .hero .btn.solid { background: var(--white); color: var(--black); }
-
     /* ==========================================================
-       6. CARD GRID
+       7. GRID & CARDS
        ========================================================== */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
       margin-top: 2.5rem;
-      border: 1px solid var(--black);
     }
 
     .card {
-      padding: 2rem;
-      border: 1px solid var(--black);
-      margin: -1px 0 0 -1px;
+      padding: 2.2rem;
+      border: 1px solid var(--color-taupe);
+      background: var(--color-sand);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(59, 49, 46, 0.08);
+    }
+
+    .card.golden-tier  { border-top: 4px solid var(--metal-gold); }
+    .card.bronze-tier  { border-top: 4px solid var(--metal-bronze); }
+    .card.silver-tier  { border-top: 4px solid var(--metal-silver); }
+
     /* ==========================================================
-       7. TIERS PAGE ROWS
+       8. TIERS PAGE ROWS
        ========================================================== */
     .tier-row {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 2rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--black);
+      padding: 3rem 0;
+      border-top: 1px solid var(--color-taupe);
     }
 
-    .tier-row:last-child { border-bottom: 1px solid var(--black); }
+    .tier-row:last-child { border-bottom: 1px solid var(--color-taupe); }
 
     .tier-row ul {
       list-style: none;
@@ -241,39 +314,45 @@
 
     .tier-row li {
       max-width: 46ch;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid var(--black);
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--color-taupe);
     }
 
     /* ==========================================================
-       8. CATALOG PAGE
+       9. CATALOG PAGE
        ========================================================== */
     .filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin: 2rem 0;
     }
 
     .filters button {
-      padding: 0.5rem 1.2rem;
-      background: var(--white);
-      color: var(--black);
-      border: 1px solid var(--black);
-      font-family: inherit;
+      padding: 0.55rem 1.4rem;
+      background: transparent;
+      color: var(--color-umber);
+      border: 1px solid var(--color-mocha);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .filters button.active {
-      background: var(--black);
-      color: var(--white);
+    .filters button.active,
+    .filters button:hover {
+      background: var(--color-cacao);
+      color: var(--color-latte);
+      border-color: var(--color-cacao);
     }
 
     .product {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 320px;
+      min-height: 340px;
+      background: var(--color-sand);
     }
 
     .product-image {
@@ -281,16 +360,17 @@
       align-items: center;
       justify-content: center;
       aspect-ratio: 4 / 3;
-      margin-bottom: 1rem;
-      border: 1px solid var(--black);
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--color-taupe);
       font-family: "Bodoni Moda", serif;
-      font-size: 2rem;
+      font-size: 1.8rem;
       background-size: cover;
       background-position: center;
+      color: var(--color-mocha);
     }
 
     /* ==========================================================
-       9. FOOTER
+       10. FOOTER
        ========================================================== */
     footer {
       display: flex;
@@ -299,13 +379,20 @@
       gap: 1.5rem;
       padding: 3rem 5vw;
       font-size: 0.9rem;
-      color: var(--grey);
+      color: var(--color-cacao);
+      background: var(--color-latte);
+      border-top: 1px solid var(--color-taupe);
     }
 
-    footer a { color: var(--black); cursor: pointer; }
+    footer a { 
+      color: var(--color-saddle); 
+      cursor: pointer; 
+      text-decoration: underline; 
+      font-weight: 500;
+    }
 
     /* ==========================================================
-       10. MOBILE
+       11. RESPONSIVE MOBILE
        ========================================================== */
     @media (max-width: 700px) {
       .tier-row { grid-template-columns: 1fr; }
@@ -315,7 +402,12 @@
 
 <body>
 
-  <!-- HEADER / MENU -->
+  <!-- TOP ANNOUNCEMENT RIBBON -->
+  <div class="top-ribbon">
+    Fine South African Leather Craftsmanship
+  </div>
+
+  <!-- HEADER / NAVIGATION -->
   <header>
     <button class="logo" onclick="goTo('home')">
       <img src="Hlogo.jpeg" alt="INDIGICUL" style="height:60px; display:block;">
@@ -337,7 +429,7 @@
       <section class="hero">
         <h1>INDIGENOUS CULTURE • LEATHER DESIGN • EMPOWERING FUTURE</h1>
         <p>Indigicul Leather is a premier South African luxury lifestyle brand that fuses masterful leather craftsmanship with raw African heritage.</p>
-        <div>
+        <div style="margin-top: 1rem;">
           <a class="btn solid" onclick="goTo('collectors')">View Collectors Editions</a>
           <a class="btn" onclick="goTo('catalog')">Browse the Catalog</a>
         </div>
@@ -345,33 +437,36 @@
 
       <section>
         <h2>THREE TIERS. One standard.</h2>
-        <p>Choose the tier that fits you. Every tier is finished with a metal accessory of the same name.</p>
+        <p class="subtitle">Choose the tier that fits you. Every tier is finished with a metal accessory of the same name.</p>
 
-      <div class="grid">
-        <!-- Card 1: Golden Tier -->
-        <div class="card">
-          <img src="goldentier.jpeg" alt="Golden Tier" class="card-img">
-          <h3>Golden</h3>
-          <p>Every piece in this high end collection is distinguished by hand finished, solid brass hardware.</p>
-          <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
+        <div class="grid">
+          <!-- Card 1: Golden Tier -->
+          <div class="card golden-tier">
+            <img src="goldentier.jpeg" alt="Golden Tier" class="card-img">
+            <span class="label" style="color: var(--metal-gold);">GOLDEN TIER</span>
+            <h3 style="margin-top:0.4rem;">Golden</h3>
+            <p>Every piece in this high end collection is distinguished by hand finished, solid brass hardware.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
+          </div>
+        
+          <!-- Card 2: Antique Bronze Tier -->
+          <div class="card bronze-tier">
+            <img src="bronxetier.jpeg" alt="Antique Bronze Tier" class="card-img">
+            <span class="label" style="color: var(--metal-bronze);">ANTIQUE BRONZE TIER</span>
+            <h3 style="margin-top:0.4rem;">Antique Bronze</h3>
+            <p>Tailored for every client, featuring custom bronze accents rendered in a timeless finish.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
+          </div>
+        
+          <!-- Card 3: Silver Tier -->
+          <div class="card silver-tier">
+            <img src="Silvertier.jpeg" alt="Silver Tier" class="card-img">
+            <span class="label" style="color: var(--metal-silver);">SILVER TIER</span>
+            <h3 style="margin-top:0.4rem;">Silver</h3>
+            <p>Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
+          </div>
         </div>
-      
-        <!-- Card 2: Antique Bronze Tier -->
-        <div class="card">
-          <img src="bronxetier.jpeg" alt="Antique Bronze Tier" class="card-img">
-          <h3>Antique Bronze</h3>
-          <p>Tailored for every client, featuring custom bronze accents rendered in a timeless finish.</p>
-          <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
-        </div>
-      
-        <!-- Card 3: Silver Tier -->
-        <div class="card">
-          <img src="Silvertier.jpeg" alt="Silver Tier" class="card-img">
-          <h3>Silver</h3>
-          <p>Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
-          <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
-        </div>
-      </div>
       </section>
     </div>
 
@@ -379,18 +474,18 @@
     <div class="page" id="collectors">
       <section>
         <h1 class="page-title">Collectors Editions</h1>
-        <p>Limited pieces in exotic leather, made for those who collect. Each edition is numbered and finished by hand.</p>
+        <p class="subtitle">Limited pieces in exotic leather, made for those who collect. Each edition is numbered and finished by hand.</p>
 
         <div class="grid">
-          <div class="card">
-            <span class="label">GOLDEN RANGE</span>
-            <h3>Crocodile, Snake and Ostrich</h3>
+          <div class="card golden-tier">
+            <span class="label" style="color: var(--metal-gold);">GOLDEN RANGE</span>
+            <h3 style="margin-top:0.4rem;">Crocodile, Snake and Ostrich</h3>
             <p>Our highest range. Crocodile, snake and ostrich leather with solid brass accessories.</p>
             <a class="btn solid" data-whatsapp="Collectors Edition: Golden Range">Enquire</a>
           </div>
-          <div class="card">
-            <span class="label">LOWER RANGE</span>
-            <h3>The Affordable Range</h3>
+          <div class="card bronze-tier">
+            <span class="label" style="color: var(--color-saddle);">LOWER RANGE</span>
+            <h3 style="margin-top:0.4rem;">The Affordable Range</h3>
             <p>The same INDIGICUL craftsmanship at a more accessible price point.</p>
             <a class="btn solid" data-whatsapp="Collectors Edition: Lower Range">Enquire</a>
           </div>
@@ -402,12 +497,12 @@
     <div class="page" id="tiers">
       <section>
         <h1 class="page-title">Our Tiers</h1>
-        <p>Each tier is named after its metal. Find the one that suits how you live.</p>
+        <p class="subtitle">Each tier is named after its metal. Find the one that suits how you live.</p>
 
         <!-- Golden -->
         <div class="tier-row">
           <div>
-            <h3>Golden Tier</h3>
+            <h3 style="color: var(--metal-gold);">Golden Tier</h3>
             <span class="label">HIGH END CLIENT</span>
           </div>
           <div>
@@ -423,7 +518,7 @@
         <!-- Antique Bronze -->
         <div class="tier-row">
           <div>
-            <h3>Antique Bronze Tier</h3>
+            <h3 style="color: var(--metal-bronze);">Antique Bronze Tier</h3>
             <span class="label">EVERY CLIENT</span>
           </div>
           <div>
@@ -439,7 +534,7 @@
         <!-- Silver -->
         <div class="tier-row">
           <div>
-            <h3>Silver Tier</h3>
+            <h3 style="color: var(--metal-silver);">Silver Tier</h3>
             <span class="label">EVERYDAY CLIENT</span>
           </div>
           <div>
@@ -458,7 +553,7 @@
     <div class="page" id="catalog">
       <section>
         <h1 class="page-title">Catalog</h1>
-        <p>Choose a category, then enquire on WhatsApp to order.</p>
+        <p class="subtitle">Choose a category, then enquire on WhatsApp to order.</p>
         <div class="filters" id="filters"></div>
         <div class="grid" id="products"></div>
       </section>
@@ -469,39 +564,43 @@
       <section>
         <div class="story-container">
           
-          <!-- Centered Story Logo Top -->
+          <!-- Centered Story Emblem Header -->
           <div style="text-align: center; margin-bottom: 2.5rem;">
             <img src="slogo.jpeg" alt="INDIGICUL Symbol" style="height: 150px; width: auto; display: inline-block;">
           </div>
 
-          <h1 class="page-title">Our Story</h1>
+          <h1 class="page-title" style="text-align: center;">Our Story</h1>
           
-          <p style="font-weight: 500; margin-bottom: 1rem;">
+          <p class="subtitle" style="text-align: center; margin-bottom: 2.5rem;">
+            Rooted in African soil, craftsmanship, and ancestral wisdom.
+          </p>
+
+          <p style="font-weight: 500; margin-bottom: 1rem; color: var(--color-terracotta);">
             Welcome to Indigicul:
           </p>
           <p style="margin-bottom: 2rem;">
             Indigicul is a celebration of Indigenous heritage, culture, nature, and creativity. Our mission is to preserve, promote, and honor the rich traditions, wisdom, and beauty of Indigenous people while fostering a deeper connection to the natural world.
           </p>
           
-          <p style="font-weight: 500; margin-bottom: 1rem;">
+          <p style="font-weight: 500; margin-bottom: 1rem; color: var(--color-terracotta);">
             What We Represent:
           </p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>Indigenous Cultures and People:</strong> We recognize and celebrate the diverse cultures, histories, languages, and traditions of Indigenous communities. Through our work, we seek to preserve ancestral knowledge and inspire future generations.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">Indigenous Cultures and People:</strong> We recognize and celebrate the diverse cultures, histories, languages, and traditions of Indigenous communities. Through our work, we seek to preserve ancestral knowledge and inspire future generations.</p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>Indigenous Nature:</strong> Nature is the foundation of life and the source of wisdom for Indigenous communities. We promote the protection and appreciation of our natural environment, recognizing the sacred relationship between people and the land.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">Indigenous Nature:</strong> Nature is the foundation of life and the source of wisdom for Indigenous communities. We promote the protection and appreciation of our natural environment, recognizing the sacred relationship between people and the land.</p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>Indigenous Animals:</strong> Animals hold spiritual, cultural, and ecological significance within Indigenous traditions. We honor and protect the wildlife that forms an essential part of our heritage and ecosystems.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">Indigenous Animals:</strong> Animals hold spiritual, cultural, and ecological significance within Indigenous traditions. We honor and protect the wildlife that forms an essential part of our heritage and ecosystems.</p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>Indigenous Art and Craft:</strong> Art and craftsmanship tell the stories of our ancestors and communities. We showcase and support authentic Indigenous creativity, preserving traditional skills while encouraging innovation and expression.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">Indigenous Art and Craft:</strong> Art and craftsmanship tell the stories of our ancestors and communities. We showcase and support authentic Indigenous creativity, preserving traditional skills while encouraging innovation and expression.</p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>The Symbolism Of The Yellowwood Tree:</strong> The Yellowwood Tree stands as the heart of Indigicul's identity. The tree symbolizes the land that sustains us, connects us, and forms the foundation of our existence.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">The Symbolism Of The Yellowwood Tree:</strong> The Yellowwood Tree stands as the heart of Indigicul's identity. The tree symbolizes the land that sustains us, connects us, and forms the foundation of our existence.</p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>The Symbolism Of The Roots:</strong> The roots represent our deep connection to African soil, history, and ancestry. They remind us that our strength comes from knowing where we come from and honoring those who came before us.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">The Symbolism Of The Roots:</strong> The roots represent our deep connection to African soil, history, and ancestry. They remind us that our strength comes from knowing where we come from and honoring those who came before us.</p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>The Symbolism Of The Three Mustard Seeds:</strong> The three mustard seeds symbolize faith, growth, and purpose. They reflect our belief that even the smallest seed can grow into something great when nurtured with dedication and vision.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">The Symbolism Of The Three Mustard Seeds:</strong> The three mustard seeds symbolize faith, growth, and purpose. They reflect our belief that even the smallest seed can grow into something great when nurtured with dedication and vision.</p>
           
-          <p style="margin-bottom: 1.5rem;"><strong>Rooted in The Head Creator:</strong> Mustard seeds also represent our faith in the Creator of all things. We acknowledge the Creator, we give back to our Creator, we praise our Creator for talent, wisdom, craft and a healthy and wealthy heart, mind, body and spirit. Let's pray for each other.</p>
+          <p style="margin-bottom: 1.5rem;"><strong style="color: var(--color-umber);">Rooted in The Head Creator:</strong> Mustard seeds also represent our faith in the Creator of all things. We acknowledge the Creator, we give back to our Creator, we praise our Creator for talent, wisdom, craft and a healthy and wealthy heart, mind, body and spirit. Let's pray for each other.</p>
 
           <p style="margin-top: 2rem;">We work with crocodile, snake and ostrich leather, and finish each piece with solid brass, bronze or silver accessories. Every product is checked by hand before it reaches you.</p>
         </div>
@@ -512,7 +611,7 @@
     <div class="page" id="npo">
       <section>
         <h1 class="page-title">Our NPO</h1>
-        <p>Part of every INDIGICUL sale supports our non-profit organisation. We use it to teach leather craft skills and create opportunities for the people in our community.</p>
+        <p class="subtitle">Part of every INDIGICUL sale supports our non-profit organisation. We use it to teach leather craft skills and create opportunities for the people in our community.</p>
 
         <div class="grid">
           <div class="card"><h3>Skills</h3><p>Hands-on leatherwork training.</p></div>
@@ -533,10 +632,10 @@
   </footer>
 
   <script>
-    // 1. WhatsApp number (Updated to 069 335 2881 with South Africa country code +27)
+    // 1. WhatsApp Contact Number
     const WHATSAPP_NUMBER = "27693352881";
 
-    // 2. Catalog
+    // 2. Catalog Data
     const CATALOG = [
       {
         category: "Handbags",
@@ -565,7 +664,7 @@
       }
     ];
 
-    /* SITE LOGIC */
+    /* ROUTING AND LOGIC */
     const pages       = document.querySelectorAll(".page");
     const menuButtons = document.querySelectorAll("nav button");
     let selectedCategory = "All";
@@ -592,6 +691,8 @@
     function renderCatalog() {
       const filters  = document.getElementById("filters");
       const products = document.getElementById("products");
+      if (!filters || !products) return;
+
       filters.innerHTML  = "";
       products.innerHTML = "";
 
@@ -613,7 +714,7 @@
               '<div>' +
                 '<div class="product-image"></div>' +
                 '<span class="label"></span>' +
-                '<h3></h3>' +
+                '<h3 style="margin-top:0.4rem;"></h3>' +
                 '<p></p>' +
               '</div>' +
               '<a class="btn solid" target="_blank" rel="noopener">Enquire</a>';
