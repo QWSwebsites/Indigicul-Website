@@ -61,18 +61,30 @@
       color: var(--grey);
     }
 
-    .story-image-wrapper {
-      text-align: center;
-      margin-bottom: 2rem;
-      width: 100%;
-    }
-
-    .story-image {
-      height: 140px; /* Adjust height so it is big, bold, and readable */
-      width: auto;
-      display: inline-block;
-      margin: 0 auto;
-    }
+    /* Container matching text block length */
+    .story-container {
+        max-width: 68ch;
+        margin: 0 auto;
+        text-align: left;
+      }
+      
+      /* Wrapper to crop out outer square margins of the logo file */
+      .story-logo-crop-wrapper {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      
+      /* Scales the inner image so the circle fills the text width */
+      .story-circle-logo {
+        width: 118%;      /* Adjust slightly if needed depending on padding size */
+        max-width: none;  /* Allows circle inside to expand to text edge */
+        height: auto;
+        display: block;
+      }
     
     /* ==========================================================
        3. HEADER AND NAVIGATION BUTTONS
@@ -450,10 +462,13 @@
     </div>
 
 <!-- PAGE 5: OUR STORY -->
-    <div class="page" id="story">
-      <section>
-        <div class="story-container">
-          
+    <div class="story-container">
+  
+      <!-- Logo container with cropped padding -->
+      <div class="story-logo-crop-wrapper">
+        <img src="slogo.jpeg" alt="INDIGICUL Symbol" class="story-circle-logo">
+      </div>
+      
           <div style="text-align: center; margin-bottom: 2.5rem;">
             <img src="slogo.jpeg" alt="INDIGICUL Symbol" style="height: 300px; width: auto; display: inline-block;">
           </div>
