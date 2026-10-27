@@ -73,6 +73,14 @@
       display: inline-block;
       margin: 0 auto;
     }
+
+    .card-img {
+      width: 100%;
+      height: 200px;         /* Adjust height as needed */
+      object-fit: cover;     /* Crops image nicely without distortion */
+      margin-bottom: 1.5rem;
+      display: block;
+    }
     
     /* ==========================================================
        3. HEADER AND NAVIGATION BUTTONS
@@ -340,23 +348,31 @@
         <h2>THREE TIERS. One standard.</h2>
         <p>Choose the tier that fits you. Every tier is finished with a metal accessory of the same name.</p>
 
-        <div class="grid">
-          <div class="card">
-            <h3>Golden</h3>
-            <p>Every piece in this high end collection is distinguished by hand finished, solid brass hardware.</p>
-            <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
-          </div>
-          <div class="card">
-            <h3>Antique Bronze</h3>
-            <p>Tailored for every client, featuring custom bronze accents rendered in a timeless finish.</p>
-            <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
-          </div>
-          <div class="card">
-            <h3>Silver</h3>
-            <p>Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
-            <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
-          </div>
+      <div class="grid">
+        <!-- Card 1: Golden Tier -->
+        <div class="card">
+          <img src="goldentier.jpeg" alt="Golden Tier" class="card-img">
+          <h3>Golden</h3>
+          <p>Every piece in this high end collection is distinguished by hand finished, solid brass hardware.</p>
+          <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
         </div>
+      
+        <!-- Card 2: Antique Bronze Tier -->
+        <div class="card">
+          <img src="bronxetier.jpeg" alt="Antique Bronze Tier" class="card-img">
+          <h3>Antique Bronze</h3>
+          <p>Tailored for every client, featuring custom bronze accents rendered in a timeless finish.</p>
+          <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
+        </div>
+      
+        <!-- Card 3: Silver Tier -->
+        <div class="card">
+          <img src="Silvertier.jpeg" alt="Silver Tier" class="card-img">
+          <h3>Silver</h3>
+          <p>Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
+          <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
+        </div>
+      </div>
       </section>
     </div>
 
