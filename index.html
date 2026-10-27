@@ -61,19 +61,6 @@
       color: var(--grey);
     }
 
-    .story-image-wrapper {
-      text-align: center;
-      margin-bottom: 2rem;
-      width: 100%;
-    }
-
-    .story-image {
-      height: 140px; /* Adjust height so it is big, bold, and readable */
-      width: auto;
-      display: inline-block;
-      margin: 0 auto;
-    }
-    
     /* ==========================================================
        3. HEADER AND NAVIGATION BUTTONS
        ========================================================== */
@@ -171,6 +158,15 @@
       max-width: 68ch;
       margin: 0 auto;
       text-align: left;
+    }
+
+    /* Centered Story Image with 85ch width */
+    .story-image {
+      width: 100%;
+      max-width: 85ch;
+      height: auto;
+      display: block;
+      margin: 0 auto 2.5rem auto;
     }
 
     .hero {
@@ -454,22 +450,20 @@
       <section>
         <div class="story-container">
           
-          <!-- Centered Story Logo Top -->
-          <div style="text-align: center; margin-bottom: 2.5rem;">
-            <img src="slogo.jpeg" alt="INDIGICUL Symbol" style="height: 150px; width: auto; display: inline-block;">
-          </div>
+          <!-- Centered image with 85ch width -->
+          <img src="slogo.jpeg" alt="INDIGICUL Story" class="story-image">
 
           <h1 class="page-title">Our Story</h1>
           
           <p style="font-weight: 500; margin-bottom: 1rem;">
-            Welcome to Indigicul:
+            Welcome to Indigicul
           </p>
           <p style="margin-bottom: 2rem;">
             Indigicul is a celebration of Indigenous heritage, culture, nature, and creativity. Our mission is to preserve, promote, and honor the rich traditions, wisdom, and beauty of Indigenous people while fostering a deeper connection to the natural world.
           </p>
           
           <p style="font-weight: 500; margin-bottom: 1rem;">
-            What We Represent:
+            What We Represent
           </p>
           
           <p style="margin-bottom: 1.5rem;"><strong>Indigenous Cultures and People:</strong> We recognize and celebrate the diverse cultures, histories, languages, and traditions of Indigenous communities. Through our work, we seek to preserve ancestral knowledge and inspire future generations.</p>
@@ -492,7 +486,7 @@
         </div>
       </section>
     </div>
-    
+
     <!-- PAGE 6: OUR NPO -->
     <div class="page" id="npo">
       <section>
@@ -519,114 +513,4 @@
 
   <script>
     // 1. WhatsApp number
-    const WHATSAPP_NUMBER = "27000000000";
-
-    // 2. Catalog
-    const CATALOG = [
-      {
-        category: "Handbags",
-        items: [
-          { name: "Product name", tier: "Golden",         price: "R 0.00", image: "" },
-          { name: "Product name", tier: "Antique Bronze", price: "R 0.00", image: "" }
-        ]
-      },
-      {
-        category: "Wallets",
-        items: [
-          { name: "Product name", tier: "Silver", price: "R 0.00", image: "" }
-        ]
-      },
-      {
-        category: "Belts",
-        items: [
-          { name: "Product name", tier: "Antique Bronze", price: "R 0.00", image: "" }
-        ]
-      },
-      {
-        category: "Accessories",
-        items: [
-          { name: "Product name", tier: "Silver", price: "R 0.00", image: "" }
-        ]
-      }
-    ];
-
-    /* SITE LOGIC */
-    const pages       = document.querySelectorAll(".page");
-    const menuButtons = document.querySelectorAll("nav button");
-    let selectedCategory = "All";
-
-    function whatsappLink(subject) {
-      const message = "Hello INDIGICUL, I would like to enquire about: " + subject;
-      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
-    }
-
-    function goTo(pageId) {
-      location.hash = pageId;
-    }
-
-    function showPage() {
-      let current = location.hash.slice(1);
-      const exists = [...pages].some(page => page.id === current);
-      if (!exists) current = "home";
-
-      pages.forEach(page => page.classList.toggle("active", page.id === current));
-      menuButtons.forEach(button => button.classList.toggle("active", button.dataset.page === current));
-      window.scrollTo(0, 0);
-    }
-
-    function renderCatalog() {
-      const filters  = document.getElementById("filters");
-      const products = document.getElementById("products");
-      filters.innerHTML  = "";
-      products.innerHTML = "";
-
-      ["All", ...CATALOG.map(group => group.category)].forEach(name => {
-        const button = document.createElement("button");
-        button.textContent = name;
-        button.className = name === selectedCategory ? "active" : "";
-        button.onclick = () => { selectedCategory = name; renderCatalog(); };
-        filters.appendChild(button);
-      });
-
-      CATALOG
-        .filter(group => selectedCategory === "All" || group.category === selectedCategory)
-        .forEach(group => {
-          group.items.forEach(item => {
-            const card = document.createElement("div");
-            card.className = "card product";
-            card.innerHTML =
-              '<div>' +
-                '<div class="product-image"></div>' +
-                '<span class="label"></span>' +
-                '<h3></h3>' +
-                '<p></p>' +
-              '</div>' +
-              '<a class="btn solid" target="_blank" rel="noopener">Enquire</a>';
-
-            const image = card.querySelector(".product-image");
-            if (item.image) image.style.backgroundImage = "url('" + item.image + "')";
-            else            image.textContent = "INDIGICUL";
-
-            card.querySelector(".label").textContent = group.category + " | " + item.tier;
-            card.querySelector("h3").textContent     = item.name;
-            card.querySelector("p").textContent      = item.price;
-            card.querySelector("a").href             = whatsappLink(item.name + " (" + group.category + ")");
-
-            products.appendChild(card);
-          });
-        });
-    }
-
-    document.querySelectorAll("[data-whatsapp]").forEach(button => {
-      button.href   = whatsappLink(button.dataset.whatsapp);
-      button.target = "_blank";
-      button.rel    = "noopener";
-    });
-
-    window.addEventListener("hashchange", showPage);
-    renderCatalog();
-    showPage();
-  </script>
-
-</body>
-</html>
+    const WHATSAPP_NUMBER = "270000
