@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>INDIGICUL | Fine Leather Goods</title>
 
-  <!-- Google Fonts: Playfair Display (Luxury Headings), Jost (Body) -->
+  <!-- Fonts: Bodoni Moda (headings) and Jost (body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
@@ -30,7 +30,7 @@
     }
 
     /* ==========================================================
-       2. BASE STYLES & ENHANCED TYPOGRAPHY
+       2. BASE STYLES
        ========================================================== */
     * {
       box-sizing: border-box;
@@ -40,16 +40,16 @@
     body {
       background: var(--color-latte);
       color: var(--color-umber);
-      font-family: 'Jost', Arial, sans-serif;
-      font-weight: 400;
+      font-family: Jost, Arial, sans-serif;
+      font-weight: 300;
       font-size: 17px;
       line-height: 1.7;
     }
 
     h1, h2, h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 600;
-      line-height: 1.2;
+      font-family: "Bodoni Moda", Didot, "Times New Roman", serif;
+      font-weight: 400;
+      line-height: 1.15;
       color: var(--color-umber);
     }
 
@@ -62,15 +62,28 @@
     }
 
     .page-title {
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
       margin-bottom: 1rem;
     }
 
     .label {
       font-size: 0.8rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: var(--color-saddle);
-      font-weight: 600;
+      font-weight: 500;
+    }
+
+    .story-image-wrapper {
+      text-align: center;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .story-image {
+      height: 140px; 
+      width: auto;
+      display: inline-block;
+      margin: 0 auto;
     }
 
     .card-img {
@@ -100,6 +113,9 @@
     }
 
     .logo {
+      font-family: "Bodoni Moda", serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.3em;
       background: none;
       border: 0;
       cursor: pointer;
@@ -117,8 +133,7 @@
       color: var(--color-umber);
       border: 1px solid var(--color-mocha);
       padding: 0.5rem 1.2rem;
-      font-family: 'Jost', sans-serif;
-      font-weight: 500;
+      font-family: inherit;
       font-size: 0.85rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -143,11 +158,9 @@
       background: transparent;
       color: var(--color-umber);
       border: 1px solid var(--color-cacao);
-      font-family: 'Jost', sans-serif;
-      font-weight: 500;
-      font-size: 0.88rem;
+      font-family: inherit;
+      font-size: 0.9rem;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
       text-decoration: none;
       cursor: pointer;
       transition: background 0.2s, color 0.2s, border-color 0.2s;
@@ -194,24 +207,22 @@
       flex-direction: column;
       justify-content: center;
       background: var(--color-umber);
-      color: #ffffff;
+      color: var(--color-latte);
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 6.5vw, 4.8rem);
-      letter-spacing: 0.04em;
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 1.25;
+      font-size: clamp(2.6rem, 8vw, 6rem);
+      letter-spacing: 0.02em;
+      color: var(--color-latte);
     }
 
     .hero p {
       margin-top: 1.5rem;
       font-size: 1.15rem;
-      color: var(--color-latte);
+      color: var(--color-sand);
     }
 
-    .hero .btn       { background: transparent; color: #ffffff; border-color: var(--color-sand); }
+    .hero .btn       { background: transparent; color: var(--color-latte); border-color: var(--color-sand); }
     .hero .btn:hover { background: var(--color-terracotta); color: #ffffff; border-color: var(--color-terracotta); }
     .hero .btn.solid { background: var(--color-terracotta); color: #ffffff; border-color: var(--color-terracotta); }
     .hero .btn.solid:hover { background: var(--color-latte); color: var(--color-umber); border-color: var(--color-latte); }
@@ -274,7 +285,6 @@
       color: var(--color-umber);
       border: 1px solid var(--color-mocha);
       font-family: inherit;
-      font-weight: 500;
       cursor: pointer;
     }
 
@@ -299,8 +309,8 @@
       aspect-ratio: 4 / 3;
       margin-bottom: 1rem;
       border: 1px solid var(--color-taupe);
-      font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
+      font-family: "Bodoni Moda", serif;
+      font-size: 2rem;
       background-size: cover;
       background-position: center;
       color: var(--color-mocha);
@@ -320,7 +330,7 @@
       background: var(--color-latte);
     }
 
-    footer a { color: var(--color-saddle); cursor: pointer; text-decoration: underline; font-weight: 500; }
+    footer a { color: var(--color-saddle); cursor: pointer; text-decoration: underline; }
 
     /* ==========================================================
        10. MOBILE
@@ -365,31 +375,31 @@
         <h2>THREE TIERS. One standard.</h2>
         <p>Choose the tier that fits you. Every tier is finished with a metal accessory of the same name.</p>
 
-        <div class="grid">
-          <!-- Card 1: Golden Tier -->
-          <div class="card" style="border-top: 4px solid var(--metal-gold);">
-            <img src="goldentier.jpeg" alt="Golden Tier" class="card-img">
-            <h3>Golden</h3>
-            <p>Every piece in this high end collection is distinguished by hand finished, solid brass hardware.</p>
-            <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
-          </div>
-        
-          <!-- Card 2: Antique Bronze Tier -->
-          <div class="card" style="border-top: 4px solid var(--metal-bronze);">
-            <img src="bronxetier.jpeg" alt="Antique Bronze Tier" class="card-img">
-            <h3>Antique Bronze</h3>
-            <p>Tailored for every client, featuring custom bronze accents rendered in a timeless finish.</p>
-            <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
-          </div>
-        
-          <!-- Card 3: Silver Tier -->
-          <div class="card" style="border-top: 4px solid var(--metal-silver);">
-            <img src="Silvertier.jpeg" alt="Silver Tier" class="card-img">
-            <h3>Silver</h3>
-            <p>Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
-            <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
-          </div>
+      <div class="grid">
+        <!-- Card 1: Golden Tier -->
+        <div class="card" style="border-top: 4px solid var(--metal-gold);">
+          <img src="goldentier.jpeg" alt="Golden Tier" class="card-img">
+          <h3>Golden</h3>
+          <p>Every piece in this high end collection is distinguished by hand finished, solid brass hardware.</p>
+          <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
         </div>
+      
+        <!-- Card 2: Antique Bronze Tier -->
+        <div class="card" style="border-top: 4px solid var(--metal-bronze);">
+          <img src="bronxetier.jpeg" alt="Antique Bronze Tier" class="card-img">
+          <h3>Antique Bronze</h3>
+          <p>Tailored for every client, featuring custom bronze accents rendered in a timeless finish.</p>
+          <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
+        </div>
+      
+        <!-- Card 3: Silver Tier -->
+        <div class="card" style="border-top: 4px solid var(--metal-silver);">
+          <img src="Silvertier.jpeg" alt="Silver Tier" class="card-img">
+          <h3>Silver</h3>
+          <p>Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
+          <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
+        </div>
+      </div>
       </section>
     </div>
 
