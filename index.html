@@ -17,7 +17,6 @@
       --white: #ffffff;
       --black: #000000;
       --grey:  #555555;
-      --gold:  #c59b27; /* Gold accent color for subheadings */
     }
 
     /* ==========================================================
@@ -62,6 +61,19 @@
       color: var(--grey);
     }
 
+    .story-image-wrapper {
+      text-align: center;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+
+    .story-image {
+      height: 140px; /* Adjust height so it is big, bold, and readable */
+      width: auto;
+      display: inline-block;
+      margin: 0 auto;
+    }
+    
     /* ==========================================================
        3. HEADER AND NAVIGATION BUTTONS
        ========================================================== */
@@ -115,7 +127,7 @@
     }
 
     /* ==========================================================
-       4. BUTTONS & TIER CARD DESIGN
+       4. BUTTONS
        ========================================================== */
     .btn {
       display: inline-block;
@@ -143,73 +155,6 @@
       color: var(--black);
     }
 
-    /* Grid for Tier Cards matching reference image */
-    .tier-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-
-    .tier-card {
-      border: 1px solid var(--black);
-      padding: 2.5rem 2rem 2rem 2rem;
-      background: var(--white);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: left;
-    }
-
-    .tier-card-subheading {
-      color: var(--gold);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .tier-card-title {
-      font-family: "Bodoni Moda", serif;
-      font-size: 2.2rem;
-      color: var(--black);
-      margin-bottom: 1.25rem;
-      font-weight: 400;
-      line-height: 1.1;
-    }
-
-    .tier-card-text {
-      color: var(--grey);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      max-width: 100%;
-    }
-
-    .tier-card-btn {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      background: transparent;
-      border: 1px solid var(--black);
-      color: var(--black);
-      font-family: inherit;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-      transition: all 0.2s ease;
-    }
-
-    .tier-card-btn:hover {
-      background: var(--black);
-      color: var(--white);
-    }
-
     /* ==========================================================
        5. PAGES AND SECTIONS
        ========================================================== */
@@ -221,7 +166,7 @@
       border-bottom: 1px solid var(--black);
     }
 
-    /* Container for centered story section */
+    /* Container to center story content while keeping text left-aligned */
     .story-container {
       max-width: 68ch;
       margin: 0 auto;
@@ -252,6 +197,9 @@
     .hero .btn       { background: var(--black); color: var(--white); border-color: var(--white); }
     .hero .btn.solid { background: var(--white); color: var(--black); }
 
+    /* ==========================================================
+       6. CARD GRID
+       ========================================================== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -266,7 +214,32 @@
     }
 
     /* ==========================================================
-       6. CATALOG PAGE
+       7. TIERS PAGE ROWS
+       ========================================================== */
+    .tier-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--black);
+    }
+
+    .tier-row:last-child { border-bottom: 1px solid var(--black); }
+
+    .tier-row ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+
+    .tier-row li {
+      max-width: 46ch;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--black);
+    }
+
+    /* ==========================================================
+       8. CATALOG PAGE
        ========================================================== */
     .filters {
       display: flex;
@@ -310,7 +283,7 @@
     }
 
     /* ==========================================================
-       7. FOOTER
+       9. FOOTER
        ========================================================== */
     footer {
       display: flex;
@@ -324,8 +297,11 @@
 
     footer a { color: var(--black); cursor: pointer; }
 
+    /* ==========================================================
+       10. MOBILE
+       ========================================================== */
     @media (max-width: 700px) {
-      .tier-cards-grid { grid-template-columns: 1fr; }
+      .tier-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -364,33 +340,21 @@
         <h2>THREE TIERS. One standard.</h2>
         <p>Choose the tier that fits you. Every tier is finished with a metal accessory of the same name.</p>
 
-        <!-- Tier Cards Grid Matching Image -->
-        <div class="tier-cards-grid">
-          <div class="tier-card">
-            <div>
-              <span class="tier-card-subheading">HIGH-END COLLECTION</span>
-              <h3 class="tier-card-title">Golden Tier</h3>
-              <p class="tier-card-text">Every piece in this high-end collection is distinguished by hand-finished, solid brass hardware and rare hide choices.</p>
-            </div>
-            <a class="tier-card-btn" onclick="goTo('tiers')">EXPLORE GOLDEN</a>
+        <div class="grid">
+          <div class="card">
+            <h3>Golden</h3>
+            <p>Every piece in this high end collection is distinguished by hand finished, solid brass hardware.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
           </div>
-
-          <div class="tier-card">
-            <div>
-              <span class="tier-card-subheading">CUSTOM COLLECTION</span>
-              <h3 class="tier-card-title">Antique Bronze</h3>
-              <p class="tier-card-text">Tailored for every client, featuring custom bronze accents rendered in a timeless finish with bespoke crafting options.</p>
-            </div>
-            <a class="tier-card-btn" onclick="goTo('tiers')">EXPLORE ANTIQUE BRONZE</a>
+          <div class="card">
+            <h3>Antique Bronze</h3>
+            <p>Tailored for every client, featuring custom bronze accents rendered in a timeless finish.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
           </div>
-
-          <div class="tier-card">
-            <div>
-              <span class="tier-card-subheading">EVERYDAY ESSENTIALS</span>
-              <h3 class="tier-card-title">Silver Tier</h3>
-              <p class="tier-card-text">Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
-            </div>
-            <a class="tier-card-btn" onclick="goTo('tiers')">EXPLORE SILVER</a>
+          <div class="card">
+            <h3>Silver</h3>
+            <p>Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
           </div>
         </div>
       </section>
@@ -423,35 +387,53 @@
     <div class="page" id="tiers">
       <section>
         <h1 class="page-title">Our Tiers</h1>
-        <p style="margin-bottom: 2rem;">Each tier is named after its metal. Find the one that suits how you live.</p>
+        <p>Each tier is named after its metal. Find the one that suits how you live.</p>
 
-        <!-- Tier Cards Grid Matching Image -->
-        <div class="tier-cards-grid">
-          <div class="tier-card">
-            <div>
-              <span class="tier-card-subheading">HIGH-END COLLECTION</span>
-              <h3 class="tier-card-title">Golden Tier</h3>
-              <p class="tier-card-text">Every piece in this high-end collection is distinguished by hand-finished, solid brass hardware and rare hide choices.</p>
-            </div>
-            <a class="tier-card-btn" data-whatsapp="Golden Tier">EXPLORE GOLDEN</a>
+        <!-- Golden -->
+        <div class="tier-row">
+          <div>
+            <h3>Golden Tier</h3>
+            <span class="label">HIGH END CLIENT</span>
           </div>
-
-          <div class="tier-card">
-            <div>
-              <span class="tier-card-subheading">CUSTOM COLLECTION</span>
-              <h3 class="tier-card-title">Antique Bronze</h3>
-              <p class="tier-card-text">Tailored for every client, featuring custom bronze accents rendered in a timeless finish with bespoke crafting options.</p>
-            </div>
-            <a class="tier-card-btn" data-whatsapp="Antique Bronze Tier">EXPLORE ANTIQUE BRONZE</a>
+          <div>
+            <p>Our finest work. Every bag in the Golden Tier carries a solid brass accessory.</p>
+            <ul>
+              <li>Solid brass accessories on all bags</li>
+              <li>Premium exotic leather</li>
+            </ul>
+            <a class="btn solid" data-whatsapp="Golden Tier">Enquire about Golden</a>
           </div>
+        </div>
 
-          <div class="tier-card">
-            <div>
-              <span class="tier-card-subheading">EVERYDAY ESSENTIALS</span>
-              <h3 class="tier-card-title">Silver Tier</h3>
-              <p class="tier-card-text">Curated for modern living adorned with silver hardware engineered for lasting, everyday sophistication.</p>
-            </div>
-            <a class="tier-card-btn" data-whatsapp="Silver Tier">EXPLORE SILVER</a>
+        <!-- Antique Bronze -->
+        <div class="tier-row">
+          <div>
+            <h3>Antique Bronze Tier</h3>
+            <span class="label">EVERY CLIENT</span>
+          </div>
+          <div>
+            <p>A refined middle tier with bronze accessories. Made for any client who values quality.</p>
+            <ul>
+              <li>Bronze accessories</li>
+              <li>Classic antique finish</li>
+            </ul>
+            <a class="btn solid" data-whatsapp="Antique Bronze Tier">Enquire about Antique Bronze</a>
+          </div>
+        </div>
+
+        <!-- Silver -->
+        <div class="tier-row">
+          <div>
+            <h3>Silver Tier</h3>
+            <span class="label">EVERYDAY CLIENT</span>
+          </div>
+          <div>
+            <p>Quality leather for daily use, with silver accessories.</p>
+            <ul>
+              <li>Silver accessories</li>
+              <li>Built for every day</li>
+            </ul>
+            <a class="btn solid" data-whatsapp="Silver Tier">Enquire about Silver</a>
           </div>
         </div>
       </section>
@@ -467,26 +449,28 @@
       </section>
     </div>
 
-    <!-- PAGE 5: OUR STORY (HEADING TOP -> LOGO -> LEFT TEXT) -->
+    <!-- PAGE 5: OUR STORY -->
     <div class="page" id="story">
       <section>
         <div class="story-container">
           
-          <!-- 1. Heading First -->
-          <h1 class="page-title">Our Story</h1>
-
-          <!-- 2. Centered Logo Second -->
-          <div style="text-align: center; margin: 2rem 0 3rem 0;">
-            <img src="slogo.jpeg" alt="INDIGICUL Symbol" style="height: 140px; width: auto; display: inline-block;">
+          <!-- Centered Story Logo Top -->
+          <div style="text-align: center; margin-bottom: 2.5rem;">
+            <img src="slogo.jpeg" alt="INDIGICUL Symbol" style="height: 150px; width: auto; display: inline-block;">
           </div>
+
+          <h1 class="page-title">Our Story</h1>
           
-          <!-- 3. Left-Aligned Text Content -->
-          <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Welcome to Indigicul:</h3>
+          <p style="font-weight: 500; margin-bottom: 1rem;">
+            Welcome to Indigicul:
+          </p>
           <p style="margin-bottom: 2rem;">
             Indigicul is a celebration of Indigenous heritage, culture, nature, and creativity. Our mission is to preserve, promote, and honor the rich traditions, wisdom, and beauty of Indigenous people while fostering a deeper connection to the natural world.
           </p>
           
-          <h3 style="margin-bottom: 0.5rem;">What We Represent:</h3>
+          <p style="font-weight: 500; margin-bottom: 1rem;">
+            What We Represent:
+          </p>
           
           <p style="margin-bottom: 1.5rem;"><strong>Indigenous Cultures and People:</strong> We recognize and celebrate the diverse cultures, histories, languages, and traditions of Indigenous communities. Through our work, we seek to preserve ancestral knowledge and inspire future generations.</p>
           
@@ -508,7 +492,7 @@
         </div>
       </section>
     </div>
-
+    
     <!-- PAGE 6: OUR NPO -->
     <div class="page" id="npo">
       <section>
