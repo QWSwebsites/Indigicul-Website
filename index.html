@@ -61,29 +61,17 @@
       color: var(--grey);
     }
 
-    /* Container matching text block length */
-    .story-container {
-      max-width: 68ch;
-      margin: 0 auto;
-      text-align: left;
-    }
-    
-    .story-logo-crop-wrapper {
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .story-image-wrapper {
+      text-align: center;
       margin-bottom: 2rem;
+      width: 100%;
     }
-    
-    .story-circle-logo {
-      width: 118%;
-      max-width: none;
-      height: auto;
-      display: block;
-      /* Nudges the logo slightly to the left (adjust -1rem to -2rem as needed) */
-      transform: translateX(-1.2rem); 
+
+    .story-image {
+      height: 140px; /* Adjust height so it is big, bold, and readable */
+      width: auto;
+      display: inline-block;
+      margin: 0 auto;
     }
     
     /* ==========================================================
@@ -461,12 +449,14 @@
       </section>
     </div>
 
-<!-- PAGE 5: OUR STORY -->
-          <div class="story-container">
+    <!-- PAGE 5: OUR STORY -->
+    <div class="page" id="story">
+      <section>
+        <div class="story-container">
           
-          <!-- Logo wrapper with the circular logo shifted slightly left -->
-          <div class="story-logo-crop-wrapper">
-            <img src="slogo.jpeg" alt="INDIGICUL Symbol" class="story-circle-logo">
+          <!-- Centered Story Logo Top -->
+          <div style="text-align: center; margin-bottom: 2.5rem;">
+            <img src="slogo.jpeg" alt="INDIGICUL Symbol" style="height: 150px; width: auto; display: inline-block;">
           </div>
 
           <h1 class="page-title">Our Story</h1>
@@ -474,7 +464,6 @@
           <p style="font-weight: 500; margin-bottom: 1rem;">
             Welcome to Indigicul:
           </p>
-      
           <p style="margin-bottom: 2rem;">
             Indigicul is a celebration of Indigenous heritage, culture, nature, and creativity. Our mission is to preserve, promote, and honor the rich traditions, wisdom, and beauty of Indigenous people while fostering a deeper connection to the natural world.
           </p>
