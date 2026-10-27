@@ -61,12 +61,17 @@
       color: var(--grey);
     }
 
-    .story-image {
+    .story-image-wrapper {
+      text-align: center;
+      margin-bottom: 2rem;
       width: 100%;
-      max-width: 85ch; /* Sets the exact width to 85 characters */
-      height: auto;    /* Maintains proper image proportions */
-      display: block;
-      margin: 0 auto 2.5rem auto; /* Centers the image and adds space below */
+    }
+
+    .story-image {
+      height: 140px; /* Adjust height so it is big, bold, and readable */
+      width: auto;
+      display: inline-block;
+      margin: 0 auto;
     }
     
     /* ==========================================================
@@ -444,21 +449,28 @@
       </section>
     </div>
 
-    <!-- PAGE 5: OUR STORY (CENTER CONTAINER, LEFT-ALIGNED TEXT) -->
+    <!-- PAGE 5: OUR STORY -->
     <div class="page" id="story">
       <section>
         <div class="story-container">
           
-          <img src="slogo.jpeg" alt="INDIGICUL Story" class="story-image">
-          
+          <!-- Centered Story Logo Top -->
+          <div style="text-align: center; margin-bottom: 2.5rem;">
+            <img src="slogo.jpeg" alt="INDIGICUL Symbol" style="height: 150px; width: auto; display: inline-block;">
+          </div>
+
           <h1 class="page-title">Our Story</h1>
           
-          <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Welcome to Indigicul:</h3>
+          <p style="font-weight: 500; margin-bottom: 1rem;">
+            Welcome to Indigicul:
+          </p>
           <p style="margin-bottom: 2rem;">
             Indigicul is a celebration of Indigenous heritage, culture, nature, and creativity. Our mission is to preserve, promote, and honor the rich traditions, wisdom, and beauty of Indigenous people while fostering a deeper connection to the natural world.
           </p>
           
-          <h3 style="margin-bottom: 0.5rem;">What We Represent:</h3>
+          <p style="font-weight: 500; margin-bottom: 1rem;">
+            What We Represent:
+          </p>
           
           <p style="margin-bottom: 1.5rem;"><strong>Indigenous Cultures and People:</strong> We recognize and celebrate the diverse cultures, histories, languages, and traditions of Indigenous communities. Through our work, we seek to preserve ancestral knowledge and inspire future generations.</p>
           
@@ -480,7 +492,7 @@
         </div>
       </section>
     </div>
-
+    
     <!-- PAGE 6: OUR NPO -->
     <div class="page" id="npo">
       <section>
