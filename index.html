@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INDIGICUL | Fine Leather Goods</title>
+
+  <!-- Fonts: Bodoni Moda (headings) and Jost (body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       1. COLOURS
+       Change these to restyle the whole site.
+       ========================================================== */
+    :root {
+      --white: #ffffff;
+      --black: #000000;
+      --grey:  #555555;   /* softer text colour */
+    }
+
+    /* ==========================================================
+       2. BASE STYLES
+       ========================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: Jost, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      font-family: "Bodoni Moda", Didot, "Times New Roman", serif;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); margin-bottom: 1rem; }
+    h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+    p {
+      max-width: 62ch;
+      color: var(--grey);
+    }
+
+    /* Big title at the top of every page */
+    .page-title {
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      margin-bottom: 1rem;
+    }
+
+    /* Small uppercase label above a heading */
+    .label {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--grey);
+    }
+
+    /* ==========================================================
+       3. HEADER AND NAVIGATION
+       ========================================================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem 2rem;
+      padding: 1rem 5vw;
+      background: var(--white);
+      border-bottom: 1px solid var(--black);
+    }
+
+    .logo {
+      font-family: "Bodoni Moda", serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.3em;
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+    }
+
+    nav a {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-bottom-color: var(--black);
+    }
+
+    /* ==========================================================
+       4. BUTTONS
+       .btn       = white button with black border
+       .btn.solid = black button with white text
+       ========================================================== */
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 2rem;
+      background: var(--white);
+      color: var(--black);
+      border: 1px solid var(--black);
+      font-family: inherit;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn:hover,
+    .btn.solid {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn.solid:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ==========================================================
+       5. PAGES AND SECTIONS
+       Only the page with class "active" is shown.
+       ========================================================== */
+    .page { display: none; min-height: 70vh; }
+    .page.active { display: block; }
+
+    section {
+      padding: 5rem 5vw;
+      border-bottom: 1px solid var(--black);
+    }
+
+    /* Black full-screen banner on the Home page */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 8vw, 6rem);
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      color: var(--white);
+      opacity: 0.8;
+    }
+
+    /* Buttons inside the black hero are inverted */
+    .hero .btn       { background: var(--black); color: var(--white); border-color: var(--white); }
+    .hero .btn.solid { background: var(--white); color: var(--black); }
+
+    /* ==========================================================
+       6. CARD GRID (used for tiers, collectors, NPO, products)
+       ========================================================== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 2.5rem;
+      border: 1px solid var(--black);
+    }
+
+    .card {
+      padding: 2rem;
+      border: 1px solid var(--black);
+      margin: -1px 0 0 -1px;
+    }
+
+    /* ==========================================================
+       7. TIERS PAGE ROWS
+       ========================================================== */
+    .tier-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--black);
+    }
+
+    .tier-row:last-child { border-bottom: 1px solid var(--black); }
+
+    .tier-row ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+
+    .tier-row li {
+      max-width: 46ch;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--black);
+    }
+
+    /* ==========================================================
+       8. CATALOG PAGE
+       ========================================================== */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2rem 0;
+    }
+
+    .filters button {
+      padding: 0.5rem 1.2rem;
+      background: var(--white);
+      color: var(--black);
+      border: 1px solid var(--black);
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .filters button.active {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+    }
+
+    .product-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 4 / 3;
+      margin-bottom: 1rem;
+      border: 1px solid var(--black);
+      font-family: "Bodoni Moda", serif;
+      font-size: 2rem;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ==========================================================
+       9. FOOTER
+       ========================================================== */
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 3rem 5vw;
+      font-size: 0.9rem;
+      color: var(--grey);
+    }
+
+    footer a { color: var(--black); cursor: pointer; }
+
+    /* ==========================================================
+       10. MOBILE
+       ========================================================== */
+    @media (max-width: 700px) {
+      .tier-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================
+       HEADER / MENU
+       To rename a menu item, change the text between <a> and </a>.
+       data-page must match the id of a page below.
+       ========================================================== -->
+  <header>
+    <button class="logo" onclick="goTo('home')">INDIGICUL</button>
+    <nav>
+      <a data-page="home">Home</a>
+      <a data-page="collectors">Collectors Editions</a>
+      <a data-page="tiers">Tiers</a>
+      <a data-page="catalog">Catalog</a>
+      <a data-page="story">Our Story</a>
+      <a data-page="npo">Our NPO</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         PAGE 1: HOME
+         ======================================================== -->
+    <div class="page" id="home">
+
+      <section class="hero">
+        <h1>Not made for the sidewalk.</h1>
+        <p>INDIGICUL creates top tier, high end leather goods in crocodile, snake and ostrich. Every piece is built to be owned, kept and passed on.</p>
+        <div>
+          <a class="btn solid" onclick="goTo('collectors')">View Collectors Editions</a>
+          <a class="btn" onclick="goTo('catalog')">Browse the Catalog</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Three tiers. One standard.</h2>
+        <p>Choose the tier that fits you. Every tier is finished with a metal accessory of the same name.</p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Golden</h3>
+            <p>For the high end client. Solid brass accessories on every bag.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Golden</a>
+          </div>
+          <div class="card">
+            <h3>Antique Bronze</h3>
+            <p>For every client. Bronze accessories with a classic finish.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Antique Bronze</a>
+          </div>
+          <div class="card">
+            <h3>Silver</h3>
+            <p>For the everyday client. Silver accessories, built for daily use.</p>
+            <a class="btn" onclick="goTo('tiers')">Explore Silver</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ========================================================
+         PAGE 2: COLLECTORS EDITIONS
+         data-whatsapp = text sent to WhatsApp when "Enquire" is tapped
+         ======================================================== -->
+    <div class="page" id="collectors">
+      <section>
+        <h1 class="page-title">Collectors Editions</h1>
+        <p>Limited pieces in exotic leather, made for those who collect. Each edition is numbered and finished by hand.</p>
+
+        <div class="grid">
+          <div class="card">
+            <span class="label">GOLDEN RANGE</span>
+            <h3>Crocodile, Snake and Ostrich</h3>
+            <p>Our highest range. Crocodile, snake and ostrich leather with solid brass accessories.</p>
+            <a class="btn solid" data-whatsapp="Collectors Edition: Golden Range">Enquire</a>
+          </div>
+          <div class="card">
+            <span class="label">LOWER RANGE</span>
+            <h3>The Affordable Range</h3>
+            <p>The same INDIGICUL craftsmanship at a more accessible price point.</p>
+            <a class="btn solid" data-whatsapp="Collectors Edition: Lower Range">Enquire</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================
+         PAGE 3: TIERS
+         ======================================================== -->
+    <div class="page" id="tiers">
+      <section>
+        <h1 class="page-title">Our Tiers</h1>
+        <p>Each tier is named after its metal. Find the one that suits how you live.</p>
+
+        <!-- Golden -->
+        <div class="tier-row">
+          <div>
+            <h3>Golden Tier</h3>
+            <span class="label">HIGH END CLIENT</span>
+          </div>
+          <div>
+            <p>Our finest work. Every bag in the Golden Tier carries a solid brass accessory.</p>
+            <ul>
+              <li>Solid brass accessories on all bags</li>
+              <li>Premium exotic leather</li>
+            </ul>
+            <a class="btn solid" data-whatsapp="Golden Tier">Enquire about Golden</a>
+          </div>
+        </div>
+
+        <!-- Antique Bronze -->
+        <div class="tier-row">
+          <div>
+            <h3>Antique Bronze Tier</h3>
+            <span class="label">EVERY CLIENT</span>
+          </div>
+          <div>
+            <p>A refined middle tier with bronze accessories. Made for any client who values quality.</p>
+            <ul>
+              <li>Bronze accessories</li>
+              <li>Classic antique finish</li>
+            </ul>
+            <a class="btn solid" data-whatsapp="Antique Bronze Tier">Enquire about Antique Bronze</a>
+          </div>
+        </div>
+
+        <!-- Silver -->
+        <div class="tier-row">
+          <div>
+            <h3>Silver Tier</h3>
+            <span class="label">EVERYDAY CLIENT</span>
+          </div>
+          <div>
+            <p>Quality leather for daily use, with silver accessories.</p>
+            <ul>
+              <li>Silver accessories</li>
+              <li>Built for every day</li>
+            </ul>
+            <a class="btn solid" data-whatsapp="Silver Tier">Enquire about Silver</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================
+         PAGE 4: CATALOG
+         Products are NOT written here. Edit the CATALOG list
+         in the script at the bottom of this file.
+         ======================================================== -->
+    <div class="page" id="catalog">
+      <section>
+        <h1 class="page-title">Catalog</h1>
+        <p>Choose a category, then enquire on WhatsApp to order.</p>
+        <div class="filters" id="filters"></div>
+        <div class="grid" id="products"></div>
+      </section>
+    </div>
+
+    <!-- ========================================================
+         PAGE 5: OUR STORY
+         ======================================================== -->
+    <div class="page" id="story">
+      <section>
+        <h1 class="page-title">Our Story</h1>
+        <p>INDIGICUL was founded on one belief: leather should be made with patience. We reject the quick, disposable goods sold on the sidewalk and make leather goods that last for decades.</p>
+        <p style="margin-top: 1rem;">We work with crocodile, snake and ostrich leather, and finish each piece with solid brass, bronze or silver accessories. Every product is checked by hand before it reaches you.</p>
+        <p style="margin-top: 1rem;">[Add your own founding story, founder name and workshop location here.]</p>
+      </section>
+    </div>
+
+    <!-- ========================================================
+         PAGE 6: OUR NPO (last page)
+         ======================================================== -->
+    <div class="page" id="npo">
+      <section>
+        <h1 class="page-title">Our NPO</h1>
+        <p>Part of every INDIGICUL sale supports our non-profit organisation. We use it to teach leather craft skills and create opportunities for the people in our community.</p>
+
+        <div class="grid">
+          <div class="card"><h3>Skills</h3><p>Hands-on leatherwork training.</p></div>
+          <div class="card"><h3>Work</h3><p>Pathways into paid, skilled work.</p></div>
+          <div class="card"><h3>Community</h3><p>Reinvesting in the people around us.</p></div>
+        </div>
+
+        <a class="btn solid" data-whatsapp="Our NPO: I would like to support">Support our NPO</a>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================
+       FOOTER
+       ========================================================== -->
+  <footer>
+    <span>© INDIGICUL. All rights reserved.</span>
+    <a data-whatsapp="General enquiry">WhatsApp us</a>
+  </footer>
+
+
+  <script>
+    /* ==========================================================
+       EDIT THIS SECTION
+       ========================================================== */
+
+    // 1. Your WhatsApp number: country code first, no + and no spaces.
+    //    Example for South Africa: "27821234567"
+    const WHATSAPP_NUMBER = "27000000000";
+
+    // 2. Your catalog.
+    //    To add a category: copy one { category: ... } block.
+    //    To add a product:  copy one { name: ... } line inside "items".
+    //    image: paste a picture link between the quotes, or leave "" for a placeholder.
+    const CATALOG = [
+      {
+        category: "Handbags",
+        items: [
+          { name: "Product name", tier: "Golden",         price: "R 0.00", image: "" },
+          { name: "Product name", tier: "Antique Bronze", price: "R 0.00", image: "" }
+        ]
+      },
+      {
+        category: "Wallets",
+        items: [
+          { name: "Product name", tier: "Silver", price: "R 0.00", image: "" }
+        ]
+      },
+      {
+        category: "Belts",
+        items: [
+          { name: "Product name", tier: "Antique Bronze", price: "R 0.00", image: "" }
+        ]
+      },
+      {
+        category: "Accessories",
+        items: [
+          { name: "Product name", tier: "Silver", price: "R 0.00", image: "" }
+        ]
+      }
+    ];
+
+
+    /* ==========================================================
+       SITE LOGIC (you do not need to edit below this line)
+       ========================================================== */
+
+    const pages       = document.querySelectorAll(".page");
+    const menuLinks   = document.querySelectorAll("nav a");
+    let selectedCategory = "All";
+
+    // Build a WhatsApp link with a ready-made message
+    function whatsappLink(subject) {
+      const message = "Hello INDIGICUL, I would like to enquire about: " + subject;
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    }
+
+    // Change page
+    function goTo(pageId) {
+      location.hash = pageId;
+    }
+
+    // Show the page that matches the address (#home, #tiers, ...)
+    function showPage() {
+      let current = location.hash.slice(1);
+      const exists = [...pages].some(page => page.id === current);
+      if (!exists) current = "home";
+
+      pages.forEach(page => page.classList.toggle("active", page.id === current));
+      menuLinks.forEach(link => link.classList.toggle("active", link.dataset.page === current));
+      window.scrollTo(0, 0);
+    }
+
+    // Draw the category buttons and product cards
+    function renderCatalog() {
+      const filters  = document.getElementById("filters");
+      const products = document.getElementById("products");
+      filters.innerHTML  = "";
+      products.innerHTML = "";
+
+      // Category buttons
+      ["All", ...CATALOG.map(group => group.category)].forEach(name => {
+        const button = document.createElement("button");
+        button.textContent = name;
+        button.className = name === selectedCategory ? "active" : "";
+        button.onclick = () => { selectedCategory = name; renderCatalog(); };
+        filters.appendChild(button);
+      });
+
+      // Product cards
+      CATALOG
+        .filter(group => selectedCategory === "All" || group.category === selectedCategory)
+        .forEach(group => {
+          group.items.forEach(item => {
+            const card = document.createElement("div");
+            card.className = "card product";
+            card.innerHTML =
+              '<div>' +
+                '<div class="product-image"></div>' +
+                '<span class="label"></span>' +
+                '<h3></h3>' +
+                '<p></p>' +
+              '</div>' +
+              '<a class="btn solid" target="_blank" rel="noopener">Enquire</a>';
+
+            const image = card.querySelector(".product-image");
+            if (item.image) image.style.backgroundImage = "url('" + item.image + "')";
+            else            image.textContent = "INDIGICUL";
+
+            card.querySelector(".label").textContent = group.category + " | " + item.tier;
+            card.querySelector("h3").textContent     = item.name;
+            card.querySelector("p").textContent      = item.price;
+            card.querySelector("a").href             = whatsappLink(item.name + " (" + group.category + ")");
+
+            products.appendChild(card);
+          });
+        });
+    }
+
+    // Menu clicks
+    menuLinks.forEach(link => link.onclick = () => goTo(link.dataset.page));
+
+    // WhatsApp buttons (anything with data-whatsapp)
+    document.querySelectorAll("[data-whatsapp]").forEach(button => {
+      button.href   = whatsappLink(button.dataset.whatsapp);
+      button.target = "_blank";
+      button.rel    = "noopener";
+    });
+
+    // Start
+    window.addEventListener("hashchange", showPage);
+    renderCatalog();
+    showPage();
+  </script>
+
+</body>
+</html>
